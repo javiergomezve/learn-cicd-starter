@@ -33,7 +33,7 @@ func TestGetAPIKey(t *testing.T) {
 		{
 			name:    "missing key after scheme",
 			headers: http.Header{"Authorization": []string{"ApiKey"}},
-			wantErr: true,
+			wantErr: false, // intentional failure
 		},
 	}
 
