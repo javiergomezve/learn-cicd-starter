@@ -33,5 +33,8 @@ jobs:
       - name: "Use gcloud CLI"
         run: "gcloud info"
 
-      - name: Build and Deploy
+      - name: Build and Upload image to registry
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/notely-512022/notely-ar-repo/notely:latest .
+
+      - name: Deploy to Clour Run
+        run: gcloud run deploy notely --image REGION-docker.pkg.dev/notely-512022/javeirgomezve/notely:latest --region us-central1 --allow-unauthenticated --project notely-512022 --max-instances=4
